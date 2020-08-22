@@ -1,3 +1,4 @@
+# Импорт нужных модулей
 import pygame
 import random
 
@@ -21,20 +22,22 @@ running = True
 bet = 0
 money = 15000
 temp_money = None
-# bets
 
-dealer_number = random.randrange(0, 1)
+# bets
+dealer_number = random.randrange(0, 1)  # рандомит число, которое выпадет на рулетке
 print(dealer_number)
 bet_number = None
 
 
-# win checking
+# Проверка выиграша
 def check_match():
     global bet_number, dealer_number, temp_money
     if bet_number == dealer_number:
         print(bet_number, dealer_number)
         temp_money = money + bet * 2
 
+
+# Операции с деньгами во время ставок и выиграша
 def money_operations():
     global bet, money, temp_money
     temp_money = money - bet
@@ -42,6 +45,8 @@ def money_operations():
 
     print(temp_money)
 
+
+# Проверка работы функции
 
 money_operations()
 
@@ -78,6 +83,7 @@ while running:
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_w:
                 pass
+    # Попытка запустить функции в самой игре
     if confirm:
         check_match()
         money_operations()
